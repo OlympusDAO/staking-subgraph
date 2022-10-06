@@ -3,7 +3,7 @@ import { Address, BigInt, ethereum } from "@graphprotocol/graph-ts";
 import {
   StakeCall,
   UnstakeCall,
-} from "../generated/OlympusStakingV3Staking/OlympusStakingV3";
+} from "../generated/OlympusStakingV3/OlympusStakingV3";
 import { Action } from "../generated/schema";
 import { getISO8601StringFromTimestamp } from "./helpers/dateHelper";
 import { toDecimal } from "./helpers/decimalHelper";
