@@ -3,6 +3,8 @@ import { Address, BigInt, ethereum } from "@graphprotocol/graph-ts";
 import {
   StakeCall,
   UnstakeCall,
+  UnwrapCall,
+  WrapCall,
 } from "../generated/OlympusStakingV3/OlympusStakingV3";
 import { Action } from "../generated/schema";
 import { getISO8601StringFromTimestamp } from "./helpers/dateHelper";
@@ -28,7 +30,10 @@ function createAction(
   block: ethereum.Block,
   transaction: ethereum.Transaction
 ): void {
-  const recordId = `${transaction.hash.toHexString()}/${transaction.index}`;
+  // The function call does not have the logIndex, which we can use to uniquely identify the event/call. So we have to improvise.
+  const recordId = `${transaction.hash.toHexString()}/${
+    transaction.index
+  }/${action}/${fromToken}/${toToken}`;
   const loadedRecord = Action.load(recordId);
   assert(
     loadedRecord == null,
@@ -54,6 +59,7 @@ function createAction(
   record.save();
 }
 
+// OHM -> sOHM or OHM -> gOHM
 export function handleStake(call: StakeCall): void {
   createAction(
     call.from,
@@ -68,6 +74,7 @@ export function handleStake(call: StakeCall): void {
   );
 }
 
+// sOHM -> OHM or gOHM -> OHM
 export function handleUnstake(call: UnstakeCall): void {
   createAction(
     call.from,
@@ -76,6 +83,36 @@ export function handleUnstake(call: UnstakeCall): void {
     "UNSTAKE",
     call.inputs._rebasing ? TOKEN_SOHM_V2 : TOKEN_GOHM,
     TOKEN_OHM_V2,
+    call.inputs._amount,
+    call.block,
+    call.transaction
+  );
+}
+
+// sOHM -> gOHM
+export function handleWrap(call: WrapCall): void {
+  createAction(
+    call.from,
+    call.to,
+    "Ethereum",
+    "WRAP",
+    TOKEN_SOHM_V2,
+    TOKEN_GOHM,
+    call.inputs._amount,
+    call.block,
+    call.transaction
+  );
+}
+
+// gOHM -> sOHM
+export function handleUnwrap(call: UnwrapCall): void {
+  createAction(
+    call.from,
+    call.to,
+    "Ethereum",
+    "UNWRAP",
+    TOKEN_GOHM,
+    TOKEN_SOHM_V2,
     call.inputs._amount,
     call.block,
     call.transaction

@@ -23,7 +23,10 @@ dataSources:
           handler: handleStake
         - function: unstake(address,uint256,bool,bool)
           handler: handleUnstake
+        - function: wrap(address,uint256)
+          handler: handleWrap
+        - function: unwrap(address,uint256)
+          handler: handleUnwrap
       file: ./src/handleAction.ts
 # export const STAKING_CONTRACT_V1 = "0x0822f3c03dcc24d200aff33493dc08d0e1f274a2".toLowerCase();
 # export const STAKING_CONTRACT_V2 = "0xfd31c7d00ca47653c6ce64af53c1571f9c36566a".toLowerCase();
-# export const STAKING_CONTRACT_V2_BLOCK = "12622679";
