@@ -5,6 +5,7 @@
   "main": "index.js",
   "author": "Jem <0x0xjem@gmail.com>",
   "license": "MIT",
+  "homepage": "https://github.com/OlympusDAO/staking-subgraph",
   "scripts": {
     "codegen": "graph codegen && yarn eslint --config ./.eslintrc.json --fix generated/",
     "build": "graph build",
