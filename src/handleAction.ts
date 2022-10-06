@@ -1,4 +1,5 @@
-import { Address, BigInt, ethereum } from "@graphprotocol/graph-ts";
+import { Address, BigInt, ethereum, log } from "@graphprotocol/graph-ts";
+import { JSON } from "assemblyscript-json";
 
 import {
   StakeOHMCall,
@@ -47,9 +48,8 @@ function createAction(
   transaction: ethereum.Transaction
 ): void {
   // The function call does not have the logIndex, which we can use to uniquely identify the event/call. So we have to improvise.
-  const recordId = `${transaction.hash.toHexString()}/${
-    transaction.index
-  }/${action}/${fromToken}/${toToken}`;
+  // We include the amount to differentiate multiple calls in a single transaction, e.g. 0x4fe8508b7c920c915e46b74d2ca35bb910428886272e57dc74aad341ddaf2956
+  const recordId = `${transaction.hash.toHexString()}/${action}/${fromToken}/${toToken}/${amount.toString()}`;
   const loadedRecord = Action.load(recordId);
   assert(
     loadedRecord == null,
