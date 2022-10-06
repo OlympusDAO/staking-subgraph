@@ -1,0 +1,22 @@
+enum ActionType {
+  STAKE
+  UNSTAKE
+  WRAP
+  UNWRAP
+}
+
+type Action @entity {
+  id: ID! # transaction-logIndex
+  block: BigInt!
+  date: String! # ISO 8601 format
+  timestamp: String! # Unix format
+  transaction: Bytes!
+  transactionLogIndex: BigInt!
+  from: Bytes!
+  to: Bytes!
+  blockchain: String!
+  action: ActionType!
+  amount: BigDecimal!
+  fromToken: String!
+  toToken: String!
+}
