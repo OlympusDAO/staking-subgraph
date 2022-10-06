@@ -222,10 +222,10 @@
     "@ethersproject/properties" "^5.7.0"
     "@ethersproject/strings" "^5.7.0"
 
-"@graphprotocol/graph-cli@^0.33.0":
-  version "0.33.1"
-  resolved "https://registry.yarnpkg.com/@graphprotocol/graph-cli/-/graph-cli-0.33.1.tgz#09c10f59005702fc4b3075dcfd80f4c96394bcf5"
-  integrity sha512-wv8PuDA1xrnRz52bkvo4R1XDj+5F0Oin879ogd7obOCSniXurkzHa4SjaomjHz7yyHQduorYarnXCZ+MVHuSGg==
+"@graphprotocol/graph-cli@^0.34.0":
+  version "0.34.0"
+  resolved "https://registry.yarnpkg.com/@graphprotocol/graph-cli/-/graph-cli-0.34.0.tgz#ddad8d6e0715492107c68efe29c328c429f3a858"
+  integrity sha512-tHmephhj5i6SQIyHNpF/dP9QEuVz4jdyg7CEfo0r3/3Wq/CC/turoVEZ2QK7h4sEg9dRJW/jampoD0BO7bVGWw==
   dependencies:
     assemblyscript "0.19.10"
     binary-install-raw "0.0.13"
@@ -257,6 +257,13 @@
   version "0.27.0"
   resolved "https://registry.yarnpkg.com/@graphprotocol/graph-ts/-/graph-ts-0.27.0.tgz#948fe1716f6082964a01a63a19bcbf9ac44e06ff"
   integrity sha512-r1SPDIZVQiGMxcY8rhFSM0y7d/xAbQf5vHMWUf59js1KgoyWpM6P3tczZqmQd7JTmeyNsDGIPzd9FeaxllsU4w==
+  dependencies:
+    assemblyscript "0.19.10"
+
+"@graphprotocol/graph-ts@^0.28.0":
+  version "0.28.0"
+  resolved "https://registry.yarnpkg.com/@graphprotocol/graph-ts/-/graph-ts-0.28.0.tgz#4229ad10b9a956c76f126bb08a856c556eedef22"
+  integrity sha512-Qug3KpmqZ/KOg3FFBOtD74GAK/9AkR7lTxoEYMdx3jZ/+fi9oOSDod2vEkLOjUxsE7yZOseNqiXOxeU0XGqJWw==
   dependencies:
     assemblyscript "0.19.10"
 
@@ -1354,10 +1361,10 @@ escape-string-regexp@^4.0.0:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz#14ba83a5d373e3d311e5afca29cf5bfad965bf34"
   integrity sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==
 
-eslint-plugin-simple-import-sort@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-simple-import-sort/-/eslint-plugin-simple-import-sort-7.0.0.tgz#a1dad262f46d2184a90095a60c66fef74727f0f8"
-  integrity sha512-U3vEDB5zhYPNfxT5TYR7u01dboFZp+HNpnGhkDB2g/2E4wZ/g1Q9Ton8UwCLfRV9yAKyYqDh62oHOamvkFxsvw==
+eslint-plugin-simple-import-sort@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-simple-import-sort/-/eslint-plugin-simple-import-sort-8.0.0.tgz#9d9a2372b0606e999ea841b10458a370a6ccc160"
+  integrity sha512-bXgJQ+lqhtQBCuWY/FUWdB27j4+lqcvXv5rUARkzbeWLwea+S5eBZEQrhnO+WgX3ZoJHVj0cn943iyXwByHHQw==
 
 eslint-scope@^5.1.1:
   version "5.1.1"
@@ -1817,9 +1824,9 @@ globby@^11.1.0:
     merge2 "^1.4.1"
     slash "^3.0.0"
 
-"gluegun@git+https://github.com/edgeandnode/gluegun.git#v4.3.1-pin-colors-dep":
+"gluegun@https://github.com/edgeandnode/gluegun#v4.3.1-pin-colors-dep":
   version "4.3.1"
-  resolved "git+https://github.com/edgeandnode/gluegun.git#b34b9003d7bf556836da41b57ef36eb21570620a"
+  resolved "https://github.com/edgeandnode/gluegun#b34b9003d7bf556836da41b57ef36eb21570620a"
   dependencies:
     apisauce "^1.0.1"
     app-module-path "^2.2.0"

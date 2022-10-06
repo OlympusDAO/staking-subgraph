@@ -16,15 +16,15 @@
     "auth:dev": "source .env && graph auth --product subgraph-studio $GRAPH_STUDIO_TOKEN"
   },
   "dependencies": {
-    "@graphprotocol/graph-cli": "^0.33.0",
-    "@graphprotocol/graph-ts": "^0.27.0",
+    "@graphprotocol/graph-cli": "^0.34.0",
+    "@graphprotocol/graph-ts": "^0.28.0",
     "assemblyscript-json": "^1.1.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.26.0",
     "@typescript-eslint/parser": "^5.26.0",
     "eslint": "^8.16.0",
-    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-simple-import-sort": "^8.0.0",
     "matchstick-as": "^0.5.0",
     "prettier": "^2.6.2",
     "typescript": "^4.6.4"
