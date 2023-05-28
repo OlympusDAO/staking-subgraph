@@ -17,7 +17,7 @@
     "auth:dev": "source .env && graph auth --product subgraph-studio $GRAPH_STUDIO_TOKEN"
   },
   "dependencies": {
-    "@graphprotocol/graph-cli": "^0.34.0",
+    "@graphprotocol/graph-cli": "^0.50.0",
     "@graphprotocol/graph-ts": "^0.28.0",
     "assemblyscript-json": "^1.1.0"
   },
