@@ -14,10 +14,11 @@
     "test": "graph test --version 0.5.3",
     "test:force": "yarn test --recompile",
     "auth": "source .env && graph auth --product hosted-service $GRAPH_TOKEN",
-    "auth:dev": "source .env && graph auth --product subgraph-studio $GRAPH_STUDIO_TOKEN"
+    "auth:dev": "source .env && graph auth --product subgraph-studio $GRAPH_STUDIO_TOKEN",
+    "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
-    "@graphprotocol/graph-cli": "^0.34.0",
+    "@graphprotocol/graph-cli": "^0.98.1",
     "@graphprotocol/graph-ts": "^0.28.0",
     "assemblyscript-json": "^1.1.0"
   },
@@ -29,5 +30,11 @@
     "matchstick-as": "^0.5.0",
     "prettier": "^2.6.2",
     "typescript": "^4.6.4"
+  },
+  "packageManager": "pnpm@10.33.0",
+  "engines": {
+    "pnpm": "10.33.0",
+    "npm": "use-pnpm",
+    "yarn": "use-pnpm"
   }
 }
