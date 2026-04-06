@@ -4,36 +4,4 @@ ignore:
     - '*':
         reason: No upstream fix available; transitive via @graphprotocol/graph-cli
         expires: 2026-07-31T00:00:00.000Z
-  SNYK-JS-GLOB-14040952:
-    - '*':
-        reason: Resolved to glob@13.0.6 via overrides; external Snyk not respecting pnpm overrides
-        expires: 2026-07-31T00:00:00.000Z
-  SNYK-JS-UNDICI-15518064:
-    - '*':
-        reason: Resolved to undici@8.0.2 via overrides; external Snyk not respecting pnpm overrides
-        expires: 2026-07-31T00:00:00.000Z
-  SNYK-JS-UNDICI-15518068:
-    - '*':
-        reason: Resolved to undici@8.0.2 via overrides; external Snyk not respecting pnpm overrides
-        expires: 2026-07-31T00:00:00.000Z
-  SNYK-JS-UNDICI-15518070:
-    - '*':
-        reason: Resolved to undici@8.0.2 via overrides; external Snyk not respecting pnpm overrides
-        expires: 2026-07-31T00:00:00.000Z
-  SNYK-JS-UNDICI-14943963:
-    - '*':
-        reason: Resolved to undici@8.0.2 via overrides; external Snyk not respecting pnpm overrides
-        expires: 2026-07-31T00:00:00.000Z
-  SNYK-JS-UNDICI-15518061:
-    - '*':
-        reason: Resolved to undici@8.0.2 via overrides; external Snyk not respecting pnpm overrides
-        expires: 2026-07-31T00:00:00.000Z
-  SNYK-JS-UNDICI-15518072:
-    - '*':
-        reason: Resolved to undici@8.0.2 via overrides; external Snyk not respecting pnpm overrides
-        expires: 2026-07-31T00:00:00.000Z
-  SNYK-JS-UNDICI-10176064:
-    - '*':
-        reason: Resolved to undici@8.0.2 via overrides; external Snyk not respecting pnpm overrides
-        expires: 2026-07-31T00:00:00.000Z
 patch: {}
