@@ -7,8 +7,10 @@
   "license": "MIT",
   "homepage": "https://github.com/OlympusDAO/staking-subgraph",
   "scripts": {
-    "codegen": "graph codegen && yarn eslint --config ./.eslintrc.json --fix generated/",
+    "codegen": "graph codegen && eslint --fix --ext .ts generated",
     "build": "graph build",
+    "lint": "eslint --fix --ext .ts src generated",
+    "lint:check": "eslint --max-warnings 0 --ext .ts src generated",
     "deploy": "source .subgraph-version && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ olympusdao/staking",
     "deploy:dev": "source .subgraph-version && graph deploy --studio staking --version-label $SUBGRAPH_VERSION",
     "test": "graph test --version 0.5.3",
@@ -18,7 +20,7 @@
     "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
-    "@graphprotocol/graph-cli": "^0.96.0",
+    "@graphprotocol/graph-cli": "0.98.1",
     "@graphprotocol/graph-ts": "^0.28.0",
     "assemblyscript-json": "^1.1.0"
   },

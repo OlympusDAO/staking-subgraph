@@ -1,5 +1,4 @@
-import { Address, BigInt, ethereum, log } from "@graphprotocol/graph-ts";
-import { JSON } from "assemblyscript-json";
+import { Address, BigInt, ethereum } from "@graphprotocol/graph-ts";
 
 import {
   StakeOHMCall,
