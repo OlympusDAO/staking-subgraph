@@ -17,7 +17,7 @@
     "test:force": "yarn test --recompile",
     "auth": "source .env && graph auth --product hosted-service $GRAPH_TOKEN",
     "auth:dev": "source .env && graph auth --product subgraph-studio $GRAPH_STUDIO_TOKEN",
-    "preinstall": "npx only-allow pnpm"
+    "preinstall": "npx only-allow@1.2.2 pnpm"
   },
   "dependencies": {
     "@graphprotocol/graph-cli": "0.95.0",
