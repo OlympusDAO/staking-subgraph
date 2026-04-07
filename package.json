@@ -20,7 +20,7 @@
     "preinstall": "npx only-allow@1.2.2 pnpm"
   },
   "dependencies": {
-    "@graphprotocol/graph-cli": "0.95.0",
+    "@graphprotocol/graph-cli": "^0.98.1",
     "@graphprotocol/graph-ts": "^0.28.0",
     "assemblyscript-json": "^1.1.0"
   },
