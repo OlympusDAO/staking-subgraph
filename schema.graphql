@@ -5,7 +5,7 @@ enum ActionType {
   UNWRAP
 }
 
-type Action @entity {
+type Action @entity(immutable: true) {
   id: ID! # transaction-logIndex
   block: BigInt!
   date: String! # ISO 8601 format

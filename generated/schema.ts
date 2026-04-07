@@ -8,7 +8,8 @@ import {
   store,
   TypedMap,
   Value,
-  ValueKind} from "@graphprotocol/graph-ts";
+  ValueKind,
+} from "@graphprotocol/graph-ts";
 
 export class Action extends Entity {
   constructor(id: string) {
@@ -22,10 +23,14 @@ export class Action extends Entity {
     if (id) {
       assert(
         id.kind == ValueKind.STRING,
-        `Entities of type Action must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+        `Entities of type Action must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`,
       );
       store.set("Action", id.toString(), this);
     }
+  }
+
+  static loadInBlock(id: string): Action | null {
+    return changetype<Action | null>(store.get_in_block("Action", id));
   }
 
   static load(id: string): Action | null {
@@ -34,7 +39,11 @@ export class Action extends Entity {
 
   get id(): string {
     const value = this.get("id");
-    return value!.toString();
+    if (!value || value.kind == ValueKind.NULL) {
+      throw new Error("Cannot return null for a required field.");
+    } else {
+      return value.toString();
+    }
   }
 
   set id(value: string) {
@@ -43,7 +52,11 @@ export class Action extends Entity {
 
   get block(): BigInt {
     const value = this.get("block");
-    return value!.toBigInt();
+    if (!value || value.kind == ValueKind.NULL) {
+      throw new Error("Cannot return null for a required field.");
+    } else {
+      return value.toBigInt();
+    }
   }
 
   set block(value: BigInt) {
@@ -52,7 +65,11 @@ export class Action extends Entity {
 
   get date(): string {
     const value = this.get("date");
-    return value!.toString();
+    if (!value || value.kind == ValueKind.NULL) {
+      throw new Error("Cannot return null for a required field.");
+    } else {
+      return value.toString();
+    }
   }
 
   set date(value: string) {
@@ -61,7 +78,11 @@ export class Action extends Entity {
 
   get timestamp(): string {
     const value = this.get("timestamp");
-    return value!.toString();
+    if (!value || value.kind == ValueKind.NULL) {
+      throw new Error("Cannot return null for a required field.");
+    } else {
+      return value.toString();
+    }
   }
 
   set timestamp(value: string) {
@@ -70,7 +91,11 @@ export class Action extends Entity {
 
   get transaction(): Bytes {
     const value = this.get("transaction");
-    return value!.toBytes();
+    if (!value || value.kind == ValueKind.NULL) {
+      throw new Error("Cannot return null for a required field.");
+    } else {
+      return value.toBytes();
+    }
   }
 
   set transaction(value: Bytes) {
@@ -79,7 +104,11 @@ export class Action extends Entity {
 
   get transactionLogIndex(): BigInt {
     const value = this.get("transactionLogIndex");
-    return value!.toBigInt();
+    if (!value || value.kind == ValueKind.NULL) {
+      throw new Error("Cannot return null for a required field.");
+    } else {
+      return value.toBigInt();
+    }
   }
 
   set transactionLogIndex(value: BigInt) {
@@ -88,7 +117,11 @@ export class Action extends Entity {
 
   get from(): Bytes {
     const value = this.get("from");
-    return value!.toBytes();
+    if (!value || value.kind == ValueKind.NULL) {
+      throw new Error("Cannot return null for a required field.");
+    } else {
+      return value.toBytes();
+    }
   }
 
   set from(value: Bytes) {
@@ -97,7 +130,11 @@ export class Action extends Entity {
 
   get to(): Bytes {
     const value = this.get("to");
-    return value!.toBytes();
+    if (!value || value.kind == ValueKind.NULL) {
+      throw new Error("Cannot return null for a required field.");
+    } else {
+      return value.toBytes();
+    }
   }
 
   set to(value: Bytes) {
@@ -106,7 +143,11 @@ export class Action extends Entity {
 
   get blockchain(): string {
     const value = this.get("blockchain");
-    return value!.toString();
+    if (!value || value.kind == ValueKind.NULL) {
+      throw new Error("Cannot return null for a required field.");
+    } else {
+      return value.toString();
+    }
   }
 
   set blockchain(value: string) {
@@ -115,7 +156,11 @@ export class Action extends Entity {
 
   get action(): string {
     const value = this.get("action");
-    return value!.toString();
+    if (!value || value.kind == ValueKind.NULL) {
+      throw new Error("Cannot return null for a required field.");
+    } else {
+      return value.toString();
+    }
   }
 
   set action(value: string) {
@@ -124,7 +169,11 @@ export class Action extends Entity {
 
   get amount(): BigDecimal {
     const value = this.get("amount");
-    return value!.toBigDecimal();
+    if (!value || value.kind == ValueKind.NULL) {
+      throw new Error("Cannot return null for a required field.");
+    } else {
+      return value.toBigDecimal();
+    }
   }
 
   set amount(value: BigDecimal) {
@@ -133,7 +182,11 @@ export class Action extends Entity {
 
   get fromToken(): string {
     const value = this.get("fromToken");
-    return value!.toString();
+    if (!value || value.kind == ValueKind.NULL) {
+      throw new Error("Cannot return null for a required field.");
+    } else {
+      return value.toString();
+    }
   }
 
   set fromToken(value: string) {
@@ -142,7 +195,11 @@ export class Action extends Entity {
 
   get toToken(): string {
     const value = this.get("toToken");
-    return value!.toString();
+    if (!value || value.kind == ValueKind.NULL) {
+      throw new Error("Cannot return null for a required field.");
+    } else {
+      return value.toString();
+    }
   }
 
   set toToken(value: string) {

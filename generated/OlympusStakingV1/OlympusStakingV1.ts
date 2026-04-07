@@ -7,7 +7,8 @@ import {
   Entity,
   ethereum,
   JSONValue,
-  TypedMap} from "@graphprotocol/graph-ts";
+  TypedMap,
+} from "@graphprotocol/graph-ts";
 
 export class OwnershipTransferred extends ethereum.Event {
   get params(): OwnershipTransferred__Params {
@@ -40,7 +41,7 @@ export class OlympusStakingV1 extends ethereum.SmartContract {
     const result = super.call(
       "epochLengthInBlocks",
       "epochLengthInBlocks():(uint256)",
-      []
+      [],
     );
 
     return result[0].toBigInt();
@@ -50,7 +51,7 @@ export class OlympusStakingV1 extends ethereum.SmartContract {
     const result = super.tryCall(
       "epochLengthInBlocks",
       "epochLengthInBlocks():(uint256)",
-      []
+      [],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -78,7 +79,7 @@ export class OlympusStakingV1 extends ethereum.SmartContract {
     const result = super.call(
       "ohmToDistributeNextEpoch",
       "ohmToDistributeNextEpoch():(uint256)",
-      []
+      [],
     );
 
     return result[0].toBigInt();
@@ -88,7 +89,7 @@ export class OlympusStakingV1 extends ethereum.SmartContract {
     const result = super.tryCall(
       "ohmToDistributeNextEpoch",
       "ohmToDistributeNextEpoch():(uint256)",
-      []
+      [],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -129,7 +130,7 @@ export class OlympusStakingV1 extends ethereum.SmartContract {
 
   stakeOHM(amountToStake_: BigInt): boolean {
     const result = super.call("stakeOHM", "stakeOHM(uint256):(bool)", [
-      ethereum.Value.fromUnsignedBigInt(amountToStake_)
+      ethereum.Value.fromUnsignedBigInt(amountToStake_),
     ]);
 
     return result[0].toBoolean();
@@ -137,7 +138,7 @@ export class OlympusStakingV1 extends ethereum.SmartContract {
 
   try_stakeOHM(amountToStake_: BigInt): ethereum.CallResult<boolean> {
     const result = super.tryCall("stakeOHM", "stakeOHM(uint256):(bool)", [
-      ethereum.Value.fromUnsignedBigInt(amountToStake_)
+      ethereum.Value.fromUnsignedBigInt(amountToStake_),
     ]);
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -148,7 +149,7 @@ export class OlympusStakingV1 extends ethereum.SmartContract {
 
   unstakeOHM(amountToWithdraw_: BigInt): boolean {
     const result = super.call("unstakeOHM", "unstakeOHM(uint256):(bool)", [
-      ethereum.Value.fromUnsignedBigInt(amountToWithdraw_)
+      ethereum.Value.fromUnsignedBigInt(amountToWithdraw_),
     ]);
 
     return result[0].toBoolean();
@@ -156,7 +157,7 @@ export class OlympusStakingV1 extends ethereum.SmartContract {
 
   try_unstakeOHM(amountToWithdraw_: BigInt): ethereum.CallResult<boolean> {
     const result = super.tryCall("unstakeOHM", "unstakeOHM(uint256):(bool)", [
-      ethereum.Value.fromUnsignedBigInt(amountToWithdraw_)
+      ethereum.Value.fromUnsignedBigInt(amountToWithdraw_),
     ]);
     if (result.reverted) {
       return new ethereum.CallResult();

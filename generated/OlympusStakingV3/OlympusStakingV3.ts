@@ -7,7 +7,8 @@ import {
   Entity,
   ethereum,
   JSONValue,
-  TypedMap} from "@graphprotocol/graph-ts";
+  TypedMap,
+} from "@graphprotocol/graph-ts";
 
 export class AuthorityUpdated extends ethereum.Event {
   get params(): AuthorityUpdated__Params {
@@ -179,7 +180,7 @@ export class OlympusStakingV3 extends ethereum.SmartContract {
   claim(_to: Address, _rebasing: boolean): BigInt {
     const result = super.call("claim", "claim(address,bool):(uint256)", [
       ethereum.Value.fromAddress(_to),
-      ethereum.Value.fromBoolean(_rebasing)
+      ethereum.Value.fromBoolean(_rebasing),
     ]);
 
     return result[0].toBigInt();
@@ -188,7 +189,7 @@ export class OlympusStakingV3 extends ethereum.SmartContract {
   try_claim(_to: Address, _rebasing: boolean): ethereum.CallResult<BigInt> {
     const result = super.tryCall("claim", "claim(address,bool):(uint256)", [
       ethereum.Value.fromAddress(_to),
-      ethereum.Value.fromBoolean(_rebasing)
+      ethereum.Value.fromBoolean(_rebasing),
     ]);
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -216,14 +217,14 @@ export class OlympusStakingV3 extends ethereum.SmartContract {
     const result = super.call(
       "epoch",
       "epoch():(uint256,uint256,uint256,uint256)",
-      []
+      [],
     );
 
     return new OlympusStakingV3__epochResult(
       result[0].toBigInt(),
       result[1].toBigInt(),
       result[2].toBigInt(),
-      result[3].toBigInt()
+      result[3].toBigInt(),
     );
   }
 
@@ -231,7 +232,7 @@ export class OlympusStakingV3 extends ethereum.SmartContract {
     const result = super.tryCall(
       "epoch",
       "epoch():(uint256,uint256,uint256,uint256)",
-      []
+      [],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -242,8 +243,8 @@ export class OlympusStakingV3 extends ethereum.SmartContract {
         value[0].toBigInt(),
         value[1].toBigInt(),
         value[2].toBigInt(),
-        value[3].toBigInt()
-      )
+        value[3].toBigInt(),
+      ),
     );
   }
 
@@ -326,7 +327,7 @@ export class OlympusStakingV3 extends ethereum.SmartContract {
     const result = super.call(
       "secondsToNextEpoch",
       "secondsToNextEpoch():(uint256)",
-      []
+      [],
     );
 
     return result[0].toBigInt();
@@ -336,7 +337,7 @@ export class OlympusStakingV3 extends ethereum.SmartContract {
     const result = super.tryCall(
       "secondsToNextEpoch",
       "secondsToNextEpoch():(uint256)",
-      []
+      [],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -349,7 +350,7 @@ export class OlympusStakingV3 extends ethereum.SmartContract {
     _to: Address,
     _amount: BigInt,
     _rebasing: boolean,
-    _claim: boolean
+    _claim: boolean,
   ): BigInt {
     const result = super.call(
       "stake",
@@ -358,8 +359,8 @@ export class OlympusStakingV3 extends ethereum.SmartContract {
         ethereum.Value.fromAddress(_to),
         ethereum.Value.fromUnsignedBigInt(_amount),
         ethereum.Value.fromBoolean(_rebasing),
-        ethereum.Value.fromBoolean(_claim)
-      ]
+        ethereum.Value.fromBoolean(_claim),
+      ],
     );
 
     return result[0].toBigInt();
@@ -369,7 +370,7 @@ export class OlympusStakingV3 extends ethereum.SmartContract {
     _to: Address,
     _amount: BigInt,
     _rebasing: boolean,
-    _claim: boolean
+    _claim: boolean,
   ): ethereum.CallResult<BigInt> {
     const result = super.tryCall(
       "stake",
@@ -378,8 +379,8 @@ export class OlympusStakingV3 extends ethereum.SmartContract {
         ethereum.Value.fromAddress(_to),
         ethereum.Value.fromUnsignedBigInt(_amount),
         ethereum.Value.fromBoolean(_rebasing),
-        ethereum.Value.fromBoolean(_claim)
-      ]
+        ethereum.Value.fromBoolean(_claim),
+      ],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -398,7 +399,7 @@ export class OlympusStakingV3 extends ethereum.SmartContract {
     const result = super.tryCall(
       "supplyInWarmup",
       "supplyInWarmup():(uint256)",
-      []
+      [],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -411,7 +412,7 @@ export class OlympusStakingV3 extends ethereum.SmartContract {
     _to: Address,
     _amount: BigInt,
     _trigger: boolean,
-    _rebasing: boolean
+    _rebasing: boolean,
   ): BigInt {
     const result = super.call(
       "unstake",
@@ -420,8 +421,8 @@ export class OlympusStakingV3 extends ethereum.SmartContract {
         ethereum.Value.fromAddress(_to),
         ethereum.Value.fromUnsignedBigInt(_amount),
         ethereum.Value.fromBoolean(_trigger),
-        ethereum.Value.fromBoolean(_rebasing)
-      ]
+        ethereum.Value.fromBoolean(_rebasing),
+      ],
     );
 
     return result[0].toBigInt();
@@ -431,7 +432,7 @@ export class OlympusStakingV3 extends ethereum.SmartContract {
     _to: Address,
     _amount: BigInt,
     _trigger: boolean,
-    _rebasing: boolean
+    _rebasing: boolean,
   ): ethereum.CallResult<BigInt> {
     const result = super.tryCall(
       "unstake",
@@ -440,8 +441,8 @@ export class OlympusStakingV3 extends ethereum.SmartContract {
         ethereum.Value.fromAddress(_to),
         ethereum.Value.fromUnsignedBigInt(_amount),
         ethereum.Value.fromBoolean(_trigger),
-        ethereum.Value.fromBoolean(_rebasing)
-      ]
+        ethereum.Value.fromBoolean(_rebasing),
+      ],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -453,7 +454,7 @@ export class OlympusStakingV3 extends ethereum.SmartContract {
   unwrap(_to: Address, _amount: BigInt): BigInt {
     const result = super.call("unwrap", "unwrap(address,uint256):(uint256)", [
       ethereum.Value.fromAddress(_to),
-      ethereum.Value.fromUnsignedBigInt(_amount)
+      ethereum.Value.fromUnsignedBigInt(_amount),
     ]);
 
     return result[0].toBigInt();
@@ -462,7 +463,7 @@ export class OlympusStakingV3 extends ethereum.SmartContract {
   try_unwrap(_to: Address, _amount: BigInt): ethereum.CallResult<BigInt> {
     const result = super.tryCall("unwrap", "unwrap(address,uint256):(uint256)", [
       ethereum.Value.fromAddress(_to),
-      ethereum.Value.fromUnsignedBigInt(_amount)
+      ethereum.Value.fromUnsignedBigInt(_amount),
     ]);
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -475,24 +476,24 @@ export class OlympusStakingV3 extends ethereum.SmartContract {
     const result = super.call(
       "warmupInfo",
       "warmupInfo(address):(uint256,uint256,uint256,bool)",
-      [ethereum.Value.fromAddress(param0)]
+      [ethereum.Value.fromAddress(param0)],
     );
 
     return new OlympusStakingV3__warmupInfoResult(
       result[0].toBigInt(),
       result[1].toBigInt(),
       result[2].toBigInt(),
-      result[3].toBoolean()
+      result[3].toBoolean(),
     );
   }
 
   try_warmupInfo(
-    param0: Address
+    param0: Address,
   ): ethereum.CallResult<OlympusStakingV3__warmupInfoResult> {
     const result = super.tryCall(
       "warmupInfo",
       "warmupInfo(address):(uint256,uint256,uint256,bool)",
-      [ethereum.Value.fromAddress(param0)]
+      [ethereum.Value.fromAddress(param0)],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -503,8 +504,8 @@ export class OlympusStakingV3 extends ethereum.SmartContract {
         value[0].toBigInt(),
         value[1].toBigInt(),
         value[2].toBigInt(),
-        value[3].toBoolean()
-      )
+        value[3].toBoolean(),
+      ),
     );
   }
 
@@ -526,7 +527,7 @@ export class OlympusStakingV3 extends ethereum.SmartContract {
   wrap(_to: Address, _amount: BigInt): BigInt {
     const result = super.call("wrap", "wrap(address,uint256):(uint256)", [
       ethereum.Value.fromAddress(_to),
-      ethereum.Value.fromUnsignedBigInt(_amount)
+      ethereum.Value.fromUnsignedBigInt(_amount),
     ]);
 
     return result[0].toBigInt();
@@ -535,7 +536,7 @@ export class OlympusStakingV3 extends ethereum.SmartContract {
   try_wrap(_to: Address, _amount: BigInt): ethereum.CallResult<BigInt> {
     const result = super.tryCall("wrap", "wrap(address,uint256):(uint256)", [
       ethereum.Value.fromAddress(_to),
-      ethereum.Value.fromUnsignedBigInt(_amount)
+      ethereum.Value.fromUnsignedBigInt(_amount),
     ]);
     if (result.reverted) {
       return new ethereum.CallResult();

@@ -7,7 +7,8 @@ import {
   Entity,
   ethereum,
   JSONValue,
-  TypedMap} from "@graphprotocol/graph-ts";
+  TypedMap,
+} from "@graphprotocol/graph-ts";
 
 export class OwnershipPulled extends ethereum.Event {
   get params(): OwnershipPulled__Params {
@@ -155,7 +156,7 @@ export class OlympusStakingV2 extends ethereum.SmartContract {
     const result = super.call(
       "contractBalance",
       "contractBalance():(uint256)",
-      []
+      [],
     );
 
     return result[0].toBigInt();
@@ -165,7 +166,7 @@ export class OlympusStakingV2 extends ethereum.SmartContract {
     const result = super.tryCall(
       "contractBalance",
       "contractBalance():(uint256)",
-      []
+      [],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -193,14 +194,14 @@ export class OlympusStakingV2 extends ethereum.SmartContract {
     const result = super.call(
       "epoch",
       "epoch():(uint256,uint256,uint256,uint256)",
-      []
+      [],
     );
 
     return new OlympusStakingV2__epochResult(
       result[0].toBigInt(),
       result[1].toBigInt(),
       result[2].toBigInt(),
-      result[3].toBigInt()
+      result[3].toBigInt(),
     );
   }
 
@@ -208,7 +209,7 @@ export class OlympusStakingV2 extends ethereum.SmartContract {
     const result = super.tryCall(
       "epoch",
       "epoch():(uint256,uint256,uint256,uint256)",
-      []
+      [],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -219,8 +220,8 @@ export class OlympusStakingV2 extends ethereum.SmartContract {
         value[0].toBigInt(),
         value[1].toBigInt(),
         value[2].toBigInt(),
-        value[3].toBigInt()
-      )
+        value[3].toBigInt(),
+      ),
     );
   }
 
@@ -287,7 +288,7 @@ export class OlympusStakingV2 extends ethereum.SmartContract {
   stake(_amount: BigInt, _recipient: Address): boolean {
     const result = super.call("stake", "stake(uint256,address):(bool)", [
       ethereum.Value.fromUnsignedBigInt(_amount),
-      ethereum.Value.fromAddress(_recipient)
+      ethereum.Value.fromAddress(_recipient),
     ]);
 
     return result[0].toBoolean();
@@ -295,11 +296,11 @@ export class OlympusStakingV2 extends ethereum.SmartContract {
 
   try_stake(
     _amount: BigInt,
-    _recipient: Address
+    _recipient: Address,
   ): ethereum.CallResult<boolean> {
     const result = super.tryCall("stake", "stake(uint256,address):(bool)", [
       ethereum.Value.fromUnsignedBigInt(_amount),
-      ethereum.Value.fromAddress(_recipient)
+      ethereum.Value.fromAddress(_recipient),
     ]);
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -333,7 +334,7 @@ export class OlympusStakingV2 extends ethereum.SmartContract {
     const result = super.tryCall(
       "warmupContract",
       "warmupContract():(address)",
-      []
+      [],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -346,24 +347,24 @@ export class OlympusStakingV2 extends ethereum.SmartContract {
     const result = super.call(
       "warmupInfo",
       "warmupInfo(address):(uint256,uint256,uint256,bool)",
-      [ethereum.Value.fromAddress(param0)]
+      [ethereum.Value.fromAddress(param0)],
     );
 
     return new OlympusStakingV2__warmupInfoResult(
       result[0].toBigInt(),
       result[1].toBigInt(),
       result[2].toBigInt(),
-      result[3].toBoolean()
+      result[3].toBoolean(),
     );
   }
 
   try_warmupInfo(
-    param0: Address
+    param0: Address,
   ): ethereum.CallResult<OlympusStakingV2__warmupInfoResult> {
     const result = super.tryCall(
       "warmupInfo",
       "warmupInfo(address):(uint256,uint256,uint256,bool)",
-      [ethereum.Value.fromAddress(param0)]
+      [ethereum.Value.fromAddress(param0)],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -374,8 +375,8 @@ export class OlympusStakingV2 extends ethereum.SmartContract {
         value[0].toBigInt(),
         value[1].toBigInt(),
         value[2].toBigInt(),
-        value[3].toBoolean()
-      )
+        value[3].toBoolean(),
+      ),
     );
   }
 
